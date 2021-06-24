@@ -1,0 +1,31 @@
+﻿<Window x:Class="ThirdApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThirdApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:PlayerViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=Player.State, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Command="{Binding Path=Stop, UpdateSourceTrigger=PropertyChanged}">Stop</Button>
+            <Button Command="{Binding Path=Pause, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1">Pause</Button>
+            <Button Command="{Binding Path=Play, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2">Play</Button>
+            <Button Command="{Binding Path=Record, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3">Record</Button>
+        </Grid>
+    </Grid>
+</Window>
