@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eighth", "Eighth\Eighth.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninth", "Ninth\Ninth.csproj", "{04EF3CA1-56AF-4BEC-84C5-B1191AA8516D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tenth", "Tenth\Tenth.csproj", "{F432B0FD-C8CF-4F49-9BC1-920B6D88318A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{04EF3CA1-56AF-4BEC-84C5-B1191AA8516D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04EF3CA1-56AF-4BEC-84C5-B1191AA8516D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04EF3CA1-56AF-4BEC-84C5-B1191AA8516D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F432B0FD-C8CF-4F49-9BC1-920B6D88318A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F432B0FD-C8CF-4F49-9BC1-920B6D88318A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F432B0FD-C8CF-4F49-9BC1-920B6D88318A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F432B0FD-C8CF-4F49-9BC1-920B6D88318A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
