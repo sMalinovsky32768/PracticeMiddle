@@ -17,12 +17,15 @@ namespace Tenth
 
             while (true)
             {
-                Write("Press 1 to view the product list or any other key to exit");
-                if (ReadKey().KeyChar == '1')
+                Write("Press 1 to view the product list in shop or 2 to view the product list in all shop or any other key to exit");
+                var keyInfo = ReadKey();
+                WriteLine();
+
+                if (keyInfo.KeyChar == '1')
                 {
                     try
                     {
-                        ProductsInShop();
+                        DisplayProductsInShop();
                     }
                     catch (ShopNotFoundException ex)
                     {
@@ -30,6 +33,10 @@ namespace Tenth
                         WriteLine(ex.Message);
                         ForegroundColor = ConsoleColor.White;
                     }
+                }
+                else if (keyInfo.KeyChar == '2')
+                {
+                    DisplayProducts();
                 }
                 else
                 {
@@ -98,22 +105,33 @@ namespace Tenth
         /// Выводит список товара из определенного магазина.
         /// </summary>
         /// <exception cref="ShopNotFoundException">Магазин не найден</exception>
-        private static void ProductsInShop()
+        private static void DisplayProductsInShop()
         {
             Write("\nEnter shop name: ");
             var shopName = ReadLine();
-            var productsInShop = Prices.Where(p => p.ShopName == shopName);
+            var productsInShop = Prices.Where(p => p.ShopName == shopName).OrderBy(p => p.ProductName);
             if (productsInShop.Any())
             {
                 foreach (var product in productsInShop)
                 {
-                    WriteLine($"{nameof(Price.ProductName)}: {product.ProductName};\t{nameof(Price.ShopName)}: {product.ShopName};\t{nameof(Price.Cost)}: {product.Cost};");
+                    WriteLine($"{nameof(Price.ShopName)}: {product.ShopName};\t{nameof(Price.ProductName)}: {product.ProductName};\t{nameof(Price.Cost)}: {product.Cost};");
                 }
 
                 return;
             }
 
             throw new ShopNotFoundException(shopName);
+        }
+
+        /// <summary>
+        /// Выводит список товаров
+        /// </summary>
+        private static void DisplayProducts()
+        {
+            foreach (var product in Prices.OrderBy(p => p.ShopName).ThenBy(p => p.ProductName))
+            {
+                WriteLine($"{nameof(Price.ShopName)}: {product.ShopName};\t{nameof(Price.ProductName)}: {product.ProductName};\t{nameof(Price.Cost)}: {product.Cost};");
+            }
         }
     }
 }
